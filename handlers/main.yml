@@ -1,0 +1,7 @@
+---
+- name: restart bird
+  become: True
+  systemd:
+    name: bird
+    state: restarted
+    enabled: yes
