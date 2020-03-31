@@ -6,6 +6,7 @@
     state: present
 
 - name: Configure bird
+  become: True
   template:
     src: bird.conf.j2
     dest: /etc/bird/bird.conf
