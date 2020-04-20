@@ -5,3 +5,10 @@
     name: bird
     state: restarted
     enabled: yes
+
+- name: systemctl daemon-reload
+  become: True
+  systemd:
+    daemon_reload: yes
+    name: rpki-client
+    state: started

@@ -5,6 +5,12 @@
     name: bird
     state: present
 
+- name: Install rpki-client
+  become: True
+  apt:
+    name: rpki-client
+  when: bird_enable_rpki_client
+
 - name: Configure bird
   become: True
   template:
@@ -14,3 +20,18 @@
     group: bird
     mode: 0640
   notify: restart bird
+
+- name: Ensure rpki-client override directory exists
+  become: True
+  file:
+    name: "/etc/systemd/system/rpki-client.service.d"
+    state: directory
+  when: bird_enable_rpki_client
+
+- name: Configure rpki-client
+  become: True
+  template:
+    src: rpki-service.override.conf.j2
+    dest: /etc/systemd/system/rpki-client.service.d/override.conf
+  notify: systemctl daemon-reload
+  when: bird_enable_rpki_client

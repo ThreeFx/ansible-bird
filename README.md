@@ -6,7 +6,8 @@ Installs and configures [BIRD](https://bird.network.cz).
 Requirements
 ------------
 
-None.
+For `bird_enable_rpki_client`: Access to the `rpki-client` package on Debian.
+It is currently (20.04.2020) only packaged in `unstable`.
 
 Role Variables
 --------------
@@ -18,6 +19,7 @@ anyway.
 | Variable Name | Default Value | Description |
 --------------- |---------------|--------------
 `bird_config` | `""` | required, configuration for bird
+`bird_enable_rpki_client` | False | whether to enable the rpki client
 
 Dependencies
 ------------
