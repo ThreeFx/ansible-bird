@@ -1,4 +1,5 @@
 ---
 bird_config: "" # required, configuration file for bird
 
+bird_use_version_2: False
 bird_enable_rpki_client: False

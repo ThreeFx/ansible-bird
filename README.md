@@ -9,6 +9,9 @@ Requirements
 For `bird_enable_rpki_client`: Access to the `rpki-client` package on Debian.
 It is currently (20.04.2020) only packaged in `unstable`.
 
+For `bird_use_version_2`: Access to the `bird2` package on Debian. It is
+currently (20.04.2020) packaged in `bullseye` (= `testing`).
+
 Role Variables
 --------------
 
@@ -18,7 +21,8 @@ anyway.
 
 | Variable Name | Default Value | Description |
 --------------- |---------------|--------------
-`bird_config` | `""` | required, configuration for bird
+`bird_config` | `""` | required, configuration for bird (resp. bird2)
+`bird_use_version_2` | False | whether to use `bird2` instead of `bird`
 `bird_enable_rpki_client` | False | whether to enable the rpki client
 
 Dependencies

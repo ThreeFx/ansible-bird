@@ -4,6 +4,21 @@
   apt:
     name: bird
     state: present
+  when: not bird_use_version_2
+
+- name: Ensure bird is absent
+  become: True
+  apt:
+    name: bird
+    state: absent
+  when: bird_use_version_2
+
+- name: Install bird2
+  become: True
+  apt:
+    name: bird2
+    state: present
+  when: bird_use_version_2
 
 - name: Install rpki-client
   become: True
